@@ -95,7 +95,7 @@ if original_files:
     copy_button("원문 내용", st.session_state.files["원문데이터"][selected_file], "original_content", height=300)
 
     if selected_file.endswith("_scripts_t.txt"):
-        model_file_key = selected_file.replace("_script_t.txt", "_output.txt")
+        model_file_key = selected_file.replace("_scripts_t.txt", "_output.txt")
     else:
         model_file_key = selected_file.replace(".txt", "_output.txt")
 
