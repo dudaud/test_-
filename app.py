@@ -47,6 +47,9 @@ def copy_button(label, text, key, height=100):
 def parse_and_display(category, content, unique_prefix):
     try:
         data = json.loads(content)
+        if isinstance(data, str):
+            # 문자열 안에 JSON이 들어있다면 한 번 더 파싱
+            data = json.loads(data)
     except json.JSONDecodeError:
         st.warning(f"{category}의 데이터가 유효한 JSON 형식이 아닙니다.")
         copy_button(f"{category} 원본 내용", content, f"{unique_prefix}_raw", height=200)
